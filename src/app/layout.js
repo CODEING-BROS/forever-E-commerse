@@ -1,6 +1,6 @@
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Navbar from '@/Components/Navbar';
+import Footer from '@/Components/Footer';
 import ShopContextProvider from './Context/Context';
 import SearchBar from '@/Components/SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
