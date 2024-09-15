@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect, useContext } from 'react';
 import { ShopContext } from '@/app/Context/Context';
 import Title from './Title';
@@ -10,10 +10,10 @@ const BestSeller = () => {
 
     useEffect(() => {
         if (products && products.length > 0) {
-            const bestProduct = products.filter((item)=>(item.bestseller));
+            const bestProduct = products.filter((item) => item.bestseller);
             setBestSeller(bestProduct.slice(0, 5));
         }
-    }, []); 
+    }, [products]);  // Added dependency on products
 
     return (
         <div className='my-10'>
@@ -24,15 +24,15 @@ const BestSeller = () => {
                 </p>
             </div>
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
-                {bestSeller.map((item, index) => (
-                       <ProductItem 
-                        key={index}
+                {bestSeller.map((item) => (
+                    <ProductItem 
+                        key={item._id}  // Use item._id as the key
                         id={item._id} 
                         image={item.image}
                         price={item.price}
                         name={item.name} 
-                       />
-                    ))}
+                    />
+                ))}
             </div>
         </div>
     );
